@@ -12,7 +12,7 @@ public class FormSistema extends javax.swing.JFrame {
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -170,7 +170,7 @@ public class FormSistema extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     void mostra(){
         //pilha principal
@@ -190,7 +190,7 @@ public class FormSistema extends javax.swing.JFrame {
             lblTopo.setText("Topo: " + pilha.peek()); 
     }
     
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
          Pallet p = new Pallet ();
         p.setProduto (txtProduto.getText());
         p.setQtd(Integer.parseInt(txtQtd.getText())); 
@@ -198,9 +198,9 @@ public class FormSistema extends javax.swing.JFrame {
         System.out.println(pilha);
         System.out.println("Topo:"+pilha.peek());
         mostra();
-    }//GEN-LAST:event_btnAddActionPerformed
+    }                                      
 
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {                                          
        Pallet p = new Pallet();
         while(!pilha.isEmpty()){
           p = pilha.peek();
@@ -226,10 +226,18 @@ public class FormSistema extends javax.swing.JFrame {
           else{
               JOptionPane.showMessageDialog(null, "Movendo para auxiliar:"+p.getProduto() );
               paux.push(pilha.pop());
-              mostra();
-    }//GEN-LAST:event_btnRemoveActionPerformed
-    }
+              mostra(); //fim do else remove
+    }                                         
+    }  //devolve para a aux
+          while(!paux.isEmpty()){
+        pilha.push(paux.pop());
+         mostra();
+          }
     }//fim do WhileIsEmpty
+
+ 
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -262,7 +270,7 @@ public class FormSistema extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnRemove;
     private javax.swing.JLabel jLabel2;
@@ -276,5 +284,5 @@ public class FormSistema extends javax.swing.JFrame {
     private javax.swing.JTextArea listPilha;
     private javax.swing.JTextField txtProduto;
     private javax.swing.JTextField txtQtd;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
