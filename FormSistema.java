@@ -216,7 +216,7 @@ public class FormSistema extends javax.swing.JFrame {
               else          
               {
                   p=pilha.pop();
-                  p.setQtd(Integer.parseInt(txtQtd.getText())- p.getQtd());
+                  p.setQtd(p.getQtd()-Integer.parseInt(txtQtd.getText()));
                   pilha.push(p);
                   JOptionPane.showMessageDialog(null, "Tirei");
                     mostra();
